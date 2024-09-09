@@ -91,6 +91,34 @@ func (linkedList *LinkedList) AddToEnd(property int) {
     linkedList.headNode = &node
   }
 }
+
+func (linkedList *LinkedList) NodeWithValue(property int) *Node {
+  var node *Node
+  var nodeWith *Node
+
+  for node = LinkedList.headNode; node != nil; node = node.nextNode {
+    if node.property == property {
+      nodeWith = node
+      break
+    }
+  }
+
+  return nodeWith
+}
+
+func (linkedList *LinkedList) AddAfter(nodeProperty int, property int) {
+  var node = Node{
+    property: property,
+    nextNode: nil,
+  }
+
+  var nodeWith = linkedList.NodeWithValue(nodeProperty)
+
+  if nodeWith != nil {
+    node.nextNode = nodeWith.nextNode
+    nodeWith.nextNode = &node
+  }
+}
 ```
 
 Then we can create a linked list and add nodes to it.
