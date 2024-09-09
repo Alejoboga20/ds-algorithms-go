@@ -37,7 +37,7 @@ type LinkedList struct {
 }
 ```
 
-To interact with the linked list, we can create methods to add, remove, and search for nodes in the sequence.
+To interact with the linked list, we can create methods to add, iterate, remove, and search for nodes in the sequence.
 
 ```go
 func (linkedList *LinkedList) AddToHead(property int) {
@@ -50,6 +50,47 @@ func (linkedList *LinkedList) AddToHead(property int) {
   }
   linkedList.headNode = &node
 }
+
+
+func (linkedList *LinkedList) IterateList() {
+  var node *Node
+
+  for node = linkedList.headNode; node != nil; node = node.nextNode {
+    fmt.Println(node.property)
+  }
+}
+
+func (linkedList *LinkedList) LastNode() *Node {
+  var node *Node
+  var lastNode *Node
+
+  for node = linkedList.headNode; node != nil; node = node.nextNode {
+    if node.nextNode == nil {
+      lastNode = node
+    }
+  }
+
+  return lastNode
+}
+
+
+func (linkedList *LinkedList) AddToEnd(property int) {
+  var lastNode *Node
+
+  var node = Node{
+    property: property,
+    nextNode: nil,
+  }
+
+  lastNode = linkedList.LastNode()
+
+  if lastNode != nil {
+    lastNode.nextNode = &node
+  } else {
+    // if linked list is empty
+    linkedList.headNode = &node
+  }
+}
 ```
 
 Then we can create a linked list and add nodes to it.
@@ -60,5 +101,8 @@ func main() {
   linkedList.AddToHead(1)
   linkedList.AddToHead(3)
   linkedList.AddToHead(5)
+
+  linkedList.IterateList()
+  fmt.Println(linkedList.LastNode().property)
 }
 ```
