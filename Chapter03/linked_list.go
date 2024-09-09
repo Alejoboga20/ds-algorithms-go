@@ -1,4 +1,4 @@
-//main package has examples shown
+// main package has examples shown
 // in Hands-On Data Structures and algorithms with Go book
 package main
 
@@ -7,7 +7,7 @@ import (
 	"fmt"
 )
 
-//Node class
+// Node class
 type Node struct {
 	property int
 	nextNode *Node
@@ -18,7 +18,7 @@ type LinkedList struct {
 	headNode *Node
 }
 
-//AddToHead method of LinkedList class
+// AddToHead method of LinkedList class
 func (linkedList *LinkedList) AddToHead(property int) {
 	var node = &Node{}
 	node.property = property
@@ -33,7 +33,7 @@ func (linkedList *LinkedList) AddToHead(property int) {
 
 }
 
-//NodeWithValue method returns Node given parameter property
+// NodeWithValue method returns Node given parameter property
 func (linkedList *LinkedList) NodeWithValue(property int) *Node {
 	var node *Node
 	var nodeWith *Node
@@ -46,7 +46,7 @@ func (linkedList *LinkedList) NodeWithValue(property int) *Node {
 	return nodeWith
 }
 
-//AddAfter method  adds a node with nodeProperty after node with property
+// AddAfter method  adds a node with nodeProperty after node with property
 func (linkedList *LinkedList) AddAfter(nodeProperty int, property int) {
 	var node = &Node{}
 	node.property = property
@@ -63,7 +63,7 @@ func (linkedList *LinkedList) AddAfter(nodeProperty int, property int) {
 
 }
 
-//LastNode method returns the last Node
+// LastNode method returns the last Node
 func (linkedList *LinkedList) LastNode() *Node {
 	var node *Node
 	var lastNode *Node
@@ -75,7 +75,7 @@ func (linkedList *LinkedList) LastNode() *Node {
 	return lastNode
 }
 
-//AddToEnd method adds the node with property to the end
+// AddToEnd method adds the node with property to the end
 func (linkedList *LinkedList) AddToEnd(property int) {
 	var node = &Node{}
 	node.property = property
@@ -91,7 +91,7 @@ func (linkedList *LinkedList) AddToEnd(property int) {
 
 }
 
-//IterateList method iterates over LinkedList
+// IterateList method iterates over LinkedList
 func (linkedList *LinkedList) IterateList() {
 
 	var node *Node
